@@ -4,7 +4,7 @@ import fs from 'node:fs/promises';
 const browser=await chromium.launch({headless:true,...(process.env.PLAYWRIGHT_EXECUTABLE_PATH?{executablePath:process.env.PLAYWRIGHT_EXECUTABLE_PATH}:{})});
 const page=await browser.newPage({viewport:{width:1920,height:1080}});
 const errors=[];page.on('pageerror',e=>errors.push(e.message));
-await page.goto(process.env.DEMO_URL||'http://localhost:5173');await page.evaluate(()=>document.fonts.ready);
+const dashboardUrl=new URL(process.env.DEMO_URL||'http://localhost:5173');dashboardUrl.searchParams.set('view','dashboard');await page.goto(dashboardUrl.href);await page.evaluate(()=>document.fonts.ready);
 await page.getByRole('button',{name:'실시간 시뮬레이션',exact:true}).click();
 assert.equal(await page.locator('.metric').count(),6);assert.equal(await page.locator('.network-node').count(),10);assert.equal(await page.locator('[data-metric="0"]').innerText(),'426');
 const before=await page.locator('[data-metric="2"]').innerText();await page.waitForTimeout(3300);assert.equal(await page.locator('[data-metric="2"]').innerText(),before);

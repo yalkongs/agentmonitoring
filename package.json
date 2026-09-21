@@ -8,7 +8,8 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview --host 0.0.0.0",
     "test": "node --experimental-strip-types --test src/data.test.ts",
-    "test:browser": "node scripts/verify.mjs"
+    "test:browser": "node scripts/verify.mjs",
+    "test:tv": "node scripts/verify-tv.mjs"
   },
   "devDependencies": {
     "typescript": "~5.9.3",
