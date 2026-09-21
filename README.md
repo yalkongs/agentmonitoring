@@ -2,6 +2,8 @@
 
 금융지주 CEO를 위한 그룹 AI Agent 모니터링 대시보드 데모. **모든 지표, 상태, 업무 실행은 가상 데이터**입니다. 외부 LLM이나 실제 사내 시스템에 연결하지 않습니다.
 
+화면은 차콜·슬레이트 기반의 **AI Operations** 테마를 사용합니다. 내부 LLM은 블루, 외부 LLM은 앰버로 구분하고, 제공받은 로고는 헤더에 한 번만 작게 표시합니다. 중앙 네트워크에는 로고 대신 연결된 에이전트 수를 표시합니다.
+
 ## 모바일 접속
 
 호스팅 주소: https://im-intelligence-observatory.weoncheol-hwang.chatgpt.site
@@ -44,7 +46,7 @@ npm run preview
 - 그룹 오버뷰, AI 에이전트, 하이브리드 LLM, AX 성과 4개 화면.
 - 공식 그룹 소개의 10개 계열사를 바탕으로 한 426개 합성 에이전트.
 - 3초 주기의 완료 업무·절감 시간·토큰 갱신 및 활동 피드.
-- 회전하는 입자 구체와 계열사 연결 경로. 내부는 민트, 외부는 블루.
+- 회전하는 입자 구체와 계열사 연결 경로. 내부는 블루, 외부는 앰버.
 - 계열사·기간 공통 필터, 에이전트 검색과 경로 필터, 검토 대기 큐.
 - 계열사와 에이전트 상세 대화상자, 실행 경로, 산정 기준.
 - 현재 필터 기준 CSV 다운로드, 일시정지·재개, 전체화면 발표.
@@ -85,7 +87,9 @@ node scripts/verify-tv.mjs
 - `src/tv.ts`, `src/tv.css`, `src/tv-network.ts`: TV 전용 화면, 순환 제어, 가독성, 입자와 연결 궤적.
 - `src/network.ts`: Canvas 입자 구체 및 연결 애니메이션.
 - `src/style.css`: 반응형 디자인과 모니터 화면 배치.
+- `src/professional.css`: TV·분석 화면에 공통 적용하는 관제 테마와 타이포그래피.
+- `src/identity.ts`, `public/im-financial-group-logo.jpg`: 원본 비율을 유지하는 공통 헤더와 사용자 제공 CI.
 - `DESIGN.md`: 디자인 의도, 지표 정의, 실제 서비스 연결 구조 제안.
 - `src/data.test.ts`, `scripts/verify.mjs`: 데이터 / 브라우저 검증.
 
-계열사 구성 참고: [iM금융그룹 공식 홈페이지](https://www.imfngroup.com/). 로고는 정식 CI 자산이 아닌 텍스트 기반 콘셉트 표현입니다.
+계열사 구성 참고: [iM금융그룹 공식 홈페이지](https://www.imfngroup.com/). 로고는 사용자가 제공한 원본 이미지를 그대로 사용합니다.
