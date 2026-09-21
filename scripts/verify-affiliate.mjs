@@ -42,12 +42,12 @@ for(const [width,height,label] of [[1920,1080,'fhd'],[3840,2160,'4k'],[1440,900,
  assert.ok(size.scrollWidth<=width,`${label}: horizontal overflow ${JSON.stringify(size)}`);assert.deepEqual(size.overlaps,[],`${label} KPI overflow`);if(width>=1280)assert.ok(size.scrollHeight<=height,`${label}: vertical overflow ${JSON.stringify(size)}`);
  console.log(`PASS affiliate ${label}: ${width}×${height}`);
 }
-await page.setViewportSize({width:1920,height:1080});await page.getByRole('button',{name:'그룹 관제',exact:true}).click();await page.locator('.tv-shell').waitFor();assert.match(page.url(),/view=tv/);
+await page.setViewportSize({width:1920,height:1080});await page.getByRole('button',{name:'그룹 AX 현황',exact:true}).click();await page.locator('.tv-shell').waitFor();assert.match(page.url(),/view=tv/);
 await page.locator('.tv-affiliate-card[data-tv-affiliate="0"]').click();await page.locator('.affiliate-shell').waitFor();
 await page.getByLabel('상세 화면 계열사 선택').selectOption('sec');assert.match(await page.locator('.affiliate-heading h1').innerText(),/iM증권/);assert.match(await page.locator('.affiliate-provenance').innerText(),/가상 목록/);
-await page.getByRole('button',{name:'그룹 관제',exact:true}).click();await page.locator('.tv-shell').waitFor();
+await page.getByRole('button',{name:'그룹 AX 현황',exact:true}).click();await page.locator('.tv-shell').waitFor();
 await page.goto(origin+'/?view=dashboard');await page.locator('.company-button[data-affiliate="bank"]').click();await page.locator('.affiliate-shell').waitFor();await page.goBack();await page.locator('.dashboard').waitFor();await page.goForward();await page.locator('.affiliate-shell').waitFor();
 await page.reload();await page.locator('.affiliate-shell').waitFor();assert.match(await page.locator('.affiliate-heading h1').innerText(),/iM뱅크/);
 await page.goto(origin+'/?view=affiliate&affiliate=bank&agent=BANK-110&from=dashboard');await page.locator('.affiliate-shell').waitFor();assert.match(await page.locator('.affiliate-agent-profile').innerText(),/원문 31쪽/);assert.equal(await page.locator('#aff-page-number').innerText(),'19 / 19');
-await page.getByRole('button',{name:'그룹 관제',exact:true}).click();await page.locator('.dashboard').waitFor();
+await page.getByRole('button',{name:'그룹 AX 현황',exact:true}).click();await page.locator('.dashboard').waitFor();
 assert.deepEqual(errors,[]);await browser.close();console.log('PASS all 110 source agents, departments, filters, source attribution, period, pause/resume, TV/cards/table navigation, history, refresh and direct entry; no runtime errors');

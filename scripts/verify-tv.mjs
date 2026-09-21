@@ -5,7 +5,7 @@ const browser=await chromium.launch({headless:true,...(process.env.PLAYWRIGHT_EX
 const page=await browser.newPage({viewport:{width:1920,height:1080}});const errors=[];page.on('pageerror',e=>errors.push(e.message));
 await page.clock.install({time:new Date('2026-09-21T09:00:00Z')});
 await page.goto(process.env.DEMO_URL||'http://localhost:5173');await page.evaluate(()=>document.fonts.ready);await page.clock.runFor(1000);
-assert.equal(await page.locator('body.tv-mode').count(),1,'wide screens open the TV view by default');assert.equal(await page.locator('.tv-network-node').count(),10);assert.equal(await page.locator('.tv-affiliate-card').count(),10);assert.equal(await page.locator('.tv-core>span').innerText(),'388');
+assert.equal(await page.locator('body.tv-mode').count(),1,'wide screens open the TV view by default');assert.equal(await page.locator('.tv-network-node').count(),10);assert.equal(await page.locator('.tv-affiliate-card').count(),10);assert.match(await page.locator('.tv-core>span').innerText(),/^\d+\.\d%$/);
 if(process.env.TV_VERIFY_TAIL!=='1'){
 const initialCanvas=await page.locator('#tv-network').evaluate(c=>c.toDataURL());const initialCount=await page.locator('[data-tv-count="saved"]').innerText();await page.clock.runFor(3200);assert.notEqual(await page.locator('[data-tv-count="saved"]').innerText(),initialCount);assert.notEqual(await page.locator('#tv-network').evaluate(c=>c.toDataURL()),initialCanvas);
 await page.getByRole('button',{name:'다음 계열사',exact:true}).click();assert.equal(await page.locator('.tv-shell').getAttribute('data-focus'),'sec');await page.clock.runFor(8100);assert.equal(await page.locator('.tv-shell').getAttribute('data-focus'),'life','automatic tour advances after 8 seconds');

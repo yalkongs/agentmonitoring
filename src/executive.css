@@ -1,0 +1,28 @@
+/* CEO review hierarchy: adoption and business outcomes lead the technical detail. */
+.ax-rate-unit {font:500 .34em/1 var(--number);font-style:normal;letter-spacing:0;margin-left:5px;color:#b6c7dd;}
+.network-stage .core>strong {font-family:'Noto Sans KR',sans-serif;letter-spacing:.04em;}
+.tv-core>strong {font-family:'Noto Sans KR',sans-serif;letter-spacing:.05em;}
+.tv-network-node small {white-space:nowrap;}
+.ax-review-panel {display:flex;flex-direction:column;}
+.ax-review-items {display:flex;flex-direction:column;flex:1;min-height:0;}
+.ax-review-items>button {display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:6px;flex:1;padding:11px 0;text-align:left;border-bottom:1px solid #2c3541;min-height:0;}
+.ax-review-items>button:last-child {border-bottom:0;}
+.ax-review-items>button:hover strong {color:#aecbea;}
+.ax-review-items>button>span {font-size:9px;letter-spacing:.04em;color:#9baec7;}
+.ax-review-items strong {font-size:13px;font-weight:500;color:#e0e8f4;line-height:1.5;}
+.ax-review-items small {display:flex;align-items:center;gap:6px;color:#8f9fb5;font-size:9px;line-height:1.5;}
+.ax-review-items svg {width:11px;height:11px;flex-shrink:0;}
+.ax-review-note {font-size:8px;color:#8292a9;margin:12px 0 0;}
+@media(min-width:2200px) and (min-height:1100px) {
+  .ax-review-items>button {gap:10px;padding:18px 0;}
+  .ax-review-items>button>span {font-size:15px;}
+  .ax-review-items strong {font-size:22px;}
+  .ax-review-items small {font-size:14px;}
+  .ax-review-items svg {width:17px;height:17px;}
+  .ax-review-note {font-size:13px;margin-top:18px;}
+}
+@media(max-width:1099px) {
+  .ax-review-items>button {padding:16px 0;}
+  .ax-review-items strong {font-size:14px;}
+  .ax-review-items small {font-size:10px;}
+}

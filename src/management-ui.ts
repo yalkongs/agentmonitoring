@@ -23,7 +23,7 @@ export function efficiencyCards(d:ReturnType<typeof efficiency>, tv=false) {
 export function mcpPanel(scope:string, period:Period, tick:number, tv=false) {
   const d=mcpMetrics(scope,period,tick);
   return `<section class="mcp-panel ${tv?'mcp-tv':'panel mcp-dashboard'}" aria-label="내부 MCP 연계 현황">
-    <div class="mcp-heading"><div><span>ENTERPRISE INTEGRATION</span><h2>내부 MCP · 업무 시스템 연계</h2></div><button class="mcp-detail-button" data-mcp-detail aria-label="MCP 시스템별 내역 및 산정 기준">${icon('arrow-up-right')}</button></div>
+    <div class="mcp-heading"><div><span>AX ENABLEMENT</span><h2>업무 시스템 활용 기반 · MCP</h2></div><button class="mcp-detail-button" data-mcp-detail aria-label="MCP 시스템별 내역 및 산정 기준">${icon('arrow-up-right')}</button></div>
     <div class="mcp-content"><div class="mcp-flow" aria-label="에이전트에서 내부 MCP를 거쳐 업무 시스템으로 연결되는 가상 흐름"><span>${icon('bot')}<b>AI 에이전트</b></span><i class="mcp-flow-link"></i><span class="mcp-gateway">${icon('network')}<b>내부 MCP</b></span><i class="mcp-flow-link"></i><span>${icon('database')}<b>업무 시스템</b></span><small>조회 · 실행 · 승인 후 반영</small></div>
     <div class="mcp-metrics">
       <article><label>핵심 업무 기능 연계율</label><strong><b data-mcp="coverage">${nf(d.coverage,1)}</b><small>%</small></strong><div class="mcp-bar"><i style="width:${d.coverage}%"></i></div><p>조회 ${d.readReady}/${d.readTarget} · 실행 ${d.executeReady}/${d.executeTarget}</p></article>
