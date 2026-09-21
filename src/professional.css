@@ -19,8 +19,10 @@ body { background: var(--bg); }
   height: auto;
   flex: 0 0 auto;
   object-fit: contain;
-  border-radius: 3px;
-  background: #fff;
+  background: transparent;
+  /* Preserve the supplied artwork; black after inversion blends into any dark header. */
+  filter: grayscale(1) invert(1) brightness(1.4);
+  mix-blend-mode: screen;
 }
 .brand-title, .tv-brand > .brand-title {
   font: 600 18px/1.05 var(--number);
