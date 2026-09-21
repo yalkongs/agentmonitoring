@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {affiliates,agents,aggregate,periods} from './data.ts';
 const near=(a:number,b:number)=>assert.ok(Math.abs(a-b)<Math.max(1,Math.abs(b))*1e-10,`${a} != ${b}`);
 test('group totals reconcile with all 10 affiliates for every period and live snapshot',()=>{
- assert.equal(affiliates.length,10);assert.equal(agents.length,426);assert.equal(new Set(agents.map(a=>a.id)).size,426);
+ assert.equal(affiliates.length,10);assert.equal(agents.length,388);assert.equal(new Set(agents.map(a=>a.id)).size,388);
  for(const p of ['day','month','year'] as const)for(const tick of [0,1,1500]){
   const group=aggregate('all',p,tick);
   for(const key of ['completed','saved','tokens','internalTokens','value','cost','fte','agents'] as const){near(group[key],affiliates.reduce((s,a)=>s+aggregate(a.id,p,tick)[key],0));}

@@ -7,9 +7,10 @@
     "dev": "vite --host 0.0.0.0",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview --host 0.0.0.0",
-    "test": "node --experimental-strip-types --test src/data.test.ts",
+    "test": "node --experimental-strip-types --test src/*.test.ts",
     "test:browser": "node scripts/verify.mjs",
-    "test:tv": "node scripts/verify-tv.mjs"
+    "test:tv": "node scripts/verify-tv.mjs",
+    "test:affiliate": "node scripts/verify-affiliate.mjs"
   },
   "devDependencies": {
     "typescript": "~5.9.3",
