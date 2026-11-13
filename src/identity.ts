@@ -1,2 +1,6 @@
-/** Original CI geometry, displayed once per header with a monochrome CSS treatment. */
-export const identity = () => `<img class="group-logo" src="/im-financial-group-logo.jpg" width="644" height="416" alt="iM금융그룹"><div class="brand-title">GROUP AX<small>CEO OVERVIEW</small></div>`;
+import './wordmark.css';
+
+/** iMAX wordmark (dark-background variant: "iM" lightened for contrast, mint/lime kept). */
+export const wordmark = () => `<img class="ax-wordmark" src="/imax-wordmark-dark.svg" width="1648" height="269" alt="iMAX — iM금융그룹 AI Transformation">`;
+
+export const identity = (sub = 'CEO OVERVIEW') => `${wordmark()}<b class="brand-sub">${sub}</b>`;

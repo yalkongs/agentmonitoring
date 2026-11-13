@@ -1,0 +1,4 @@
+artifacts/
+.openai/
+playwright-report/
+test-results/

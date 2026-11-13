@@ -1,0 +1,55 @@
+/* Motion stays on activity paths; labels and KPI values remain stationary. */
+@keyframes ax-route-trace {
+  from { transform: translateX(-120%); }
+  to { transform: translateX(440%); }
+}
+@keyframes ax-pin-wave {
+  0% { transform: scale(.6); opacity: .7; }
+  85%, 100% { transform: scale(3.4); opacity: 0; }
+}
+@keyframes ax-focus-reveal {
+  from { opacity: .35; transform: translateX(12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes ax-step-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+.tv-network-node.is-focused .tv-node-pin::after {
+  content: ''; position: absolute; inset: -3px; border: 1px solid #b6cceb;
+  border-radius: 50%; animation: ax-pin-wave 2.2s ease-out infinite;
+}
+.tv-enter { animation: ax-focus-reveal .65s cubic-bezier(.2,.7,.2,1); }
+.tv-workflow-steps > div.is-current::after {
+  background: linear-gradient(90deg,#577da8,#d5e6ff);
+  transform-origin: left; animation: ax-step-progress 2s linear infinite;
+  box-shadow: 0 0 7px #8cadd74d;
+}
+.tv-route { position: relative; overflow: hidden; }
+.tv-route::after, .tv-affiliate-card.is-focused::after {
+  content: ''; position: absolute; bottom: 0; left: 0; top: auto; right: auto;
+  width: 28%; height: 2px; pointer-events: none;
+  background: linear-gradient(90deg,transparent,#bdd9fa,transparent);
+  animation: ax-route-trace 2.8s linear infinite;
+}
+.tv-route.external::after { background: linear-gradient(90deg,transparent,#e8ca91,transparent); animation-duration: 3.6s; }
+.tv-affiliate-card.is-focused::after { top: 0; bottom: auto; animation-duration: 3.2s; }
+.tv-route-wave {
+  display: block; position: absolute; inset: auto 0 5px; height: 16px;
+  margin: 0; opacity: .2; pointer-events: none;
+}
+.tv-route-wave svg { height: 16px; animation-duration: 3s; }
+.tv-route-flow > svg { min-height: 22px; }
+.tv-tour-progress > i { box-shadow: 0 0 8px #8cadd74d; }
+.mcp-flow-link::after { width: 16px; background: linear-gradient(90deg,transparent,#c4d7ef); animation-duration: 1.8s; }
+.tv-paused *, .tv-paused *::before, .tv-paused *::after,
+.tv-reduced *, .tv-reduced *::before, .tv-reduced *::after,
+.simulation-paused *, .simulation-paused *::before, .simulation-paused *::after,
+body:has(dialog[open]) *::before, body:has(dialog[open]) *::after {
+  animation-play-state: paused !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .tv-workflow-steps > div.is-current::after { transform: scaleX(1); }
+  .tv-route::after, .tv-affiliate-card.is-focused::after, .tv-node-pin::after { display: none; }
+}

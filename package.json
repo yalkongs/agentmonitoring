@@ -7,10 +7,12 @@
     "dev": "vite --host 0.0.0.0",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview --host 0.0.0.0",
+    "deploy": "npm test && npm run build && vercel deploy --prod --yes",
     "test": "node --experimental-strip-types --test src/*.test.ts",
     "test:browser": "node scripts/verify.mjs",
     "test:tv": "node scripts/verify-tv.mjs",
-    "test:affiliate": "node scripts/verify-affiliate.mjs"
+    "test:affiliate": "node scripts/verify-affiliate.mjs",
+    "test:briefing": "node scripts/verify-briefing.mjs"
   },
   "devDependencies": {
     "typescript": "~5.9.3",

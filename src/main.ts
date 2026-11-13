@@ -10,6 +10,7 @@ import {efficiency, mcpMetrics} from './management-data';
 import {efficiencyCards, efficiencyKeys, efficiencyFormat, managementDefinitions, mcpPanel, mcpDetail, updateMcpPanel, updateEfficiencyContext} from './management-ui';
 import './management.css';
 import './executive.css';
+import './motion.css';
 
 const state={tab:'overview',scope:'all',period:'month' as Period,live:true,tick:0,search:'',route:'all',presentation:false};
 const app=document.querySelector<HTMLDivElement>('#app')!;

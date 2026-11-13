@@ -20,9 +20,9 @@ body { background: var(--bg); }
   flex: 0 0 auto;
   object-fit: contain;
   background: transparent;
-  /* Preserve the supplied artwork; black after inversion blends into any dark header. */
-  filter: grayscale(1) invert(1) brightness(1.4);
-  mix-blend-mode: screen;
+  /* The PNG has real alpha; preserve the original mint colors on every surface. */
+  filter: none;
+  mix-blend-mode: normal;
 }
 .brand-title, .tv-brand > .brand-title {
   font: 600 18px/1.05 var(--number);

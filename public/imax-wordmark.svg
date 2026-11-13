@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="150 115 1745 370" width="1745" height="370" role="img" aria-labelledby="title desc">
+<title id="title">iMAX — AI Transformation</title>
+<desc id="desc">Vector reconstruction of the iM AX internal project concept. Transparent background; all lettering outlined. Concept artwork, not official CI master artwork.</desc>
+<defs><linearGradient id="leaf-gradient" x1="290" y1="166" x2="490" y2="355" gradientUnits="userSpaceOnUse"><stop stop-color="#27CDA5"/><stop offset="1" stop-color="#B7EF65"/></linearGradient></defs>
+<!-- Independently editable groups: symbol, iM, AX, subtitle. -->
+<g id="symbol">
+<rect x="199" y="254" width="92" height="178" rx="5" fill="#00C7A9"/>
+<path d="M291 166 C365 163 439 203 490 266 L445 413 C431 333 365 267 291 254 Z" fill="url(#leaf-gradient)"/>
+<path d="M697 166 C566 163 443 275 443 414 L443 427 Q443 432 448 432 L529 432 Q534 432 534 427 L534 413 C534 326 611 254 697 254 Z" fill="#00C7A9"/>
+</g>
+<g id="iM" fill="#454545">
+<circle cx="796" cy="203" r="38"/>
+<rect x="758" y="254" width="74" height="180" rx="5"/>
+<path d="M872 169 H943 Q947 169 950 174 L1031 315 L1116 174 Q1119 169 1124 169 H1192 Q1197 169 1197 175 V429 Q1197 435 1192 435 H1124 Q1119 435 1119 429 V284 L1050 403 Q1047 408 1042 408 H1018 Q1013 408 1010 403 L941 284 V429 Q941 435 936 435 H872 Q866 435 866 429 V175 Q866 169 872 169 Z"/>
+</g>
+<g id="AX" fill="#00C7A9">
+<path fill-rule="evenodd" d="M1340 166 H1397 Q1404 166 1407 173 L1528 434 H1443 Q1437 434 1434 428 L1414 383 H1321 L1302 428 Q1299 434 1293 434 H1213 L1327 174 Q1331 166 1340 166 Z M1366 242 L1331 330 H1402 Z"/>
+<path d="M1525 166 H1598 Q1603 166 1607 171 L1681 246 L1744 174 Q1752 166 1764 166 H1839 Q1847 166 1842 173 L1733 303 L1839 429 Q1844 435 1836 435 H1756 Q1751 435 1747 430 L1682 355 L1618 430 Q1614 435 1608 435 H1528 L1630 304 L1521 173 Q1516 166 1525 166 Z"/>
+<path id="forward-accent" d="M1699 226 L1744 174 Q1752 166 1764 166 H1839 Q1847 166 1842 173 L1797 226 Z" fill="#AAE823"/>
+</g>
+</svg>

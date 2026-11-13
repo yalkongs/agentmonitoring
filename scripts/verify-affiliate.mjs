@@ -13,8 +13,8 @@ assert.match(await page.locator('.affiliate-heading h1').innerText(),/iM뱅크/)
 assert.match(await page.locator('[data-aff-metric="0"]').innerText(),/^110/);
 assert.match(await page.locator('[data-aff-metric="1"]').innerText(),/^29/);
 assert.equal(await page.locator('.aff-dept-list button').count(),29);
-assert.equal(await page.locator('.group-logo').count(),1);
-assert.ok(await page.locator('.group-logo').evaluate(img=>img.naturalWidth===644));
+assert.equal(await page.locator('.ax-wordmark').count(),1);
+assert.ok(await page.locator('.ax-wordmark').evaluate(img=>img.complete&&img.naturalWidth>0&&img.src.endsWith('/imax-wordmark-dark.svg')));
 await page.getByRole('button',{name:'상세 실시간 갱신 일시정지',exact:true}).click();
 const frozen=await page.locator('[data-aff-metric="2"]').getAttribute('aria-label');await page.waitForTimeout(3200);assert.equal(await page.locator('[data-aff-metric="2"]').getAttribute('aria-label'),frozen);
 await page.getByRole('button',{name:'상세 실시간 갱신 재개',exact:true}).click();
