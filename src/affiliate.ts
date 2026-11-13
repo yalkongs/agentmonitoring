@@ -4,8 +4,9 @@ import {affiliates,periods,nf,compact,won,type Period} from './data';
 import {bankSource} from './bank-catalog';
 import {affiliateSnapshot,filterAffiliateAgents,summarizeAgents,type AffiliateAgent,type AffiliateFilters} from './affiliate-data';
 import {identity} from './identity';
+import {scopeKind,L} from './scope';
 
-type Options={id:string;tick:number;period:Period;selectedId?:string;onExit:(tick:number)=>void;onNavigate:(id:string,tick:number)=>void};
+type Options={id:string;department?:string;tick:number;period:Period;selectedId?:string;onExit:(tick:number)=>void;onNavigate:(id:string,tick:number)=>void};
 const icon=(name:string)=>`<i data-lucide="${name}" aria-hidden="true"></i>`;
 const esc=(s:string)=>s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]!));
 const PAGE_SIZE=6;
@@ -13,7 +14,7 @@ const PAGE_SIZE=6;
 export function mountAffiliate(root:HTMLElement,options:Options) {
   let tick=options.tick,period=options.period,live=true,page=0,selectedId=options.selectedId??'',destroyed=false;
   let snapshot=affiliateSnapshot(options.id,period,tick);
-  const filters:AffiliateFilters={department:'all',query:'',route:'all',status:'all',sort:'source'};
+  const filters:AffiliateFilters={department:options.department??'all',query:'',route:'all',status:'all',sort:'source'};
   const company=snapshot.affiliate,isBank=company.id==='bank';
   const reduced=matchMedia('(prefers-reduced-motion: reduce)');
   document.body.classList.remove('tv-mode','presentation','simulation-paused');
@@ -21,11 +22,11 @@ export function mountAffiliate(root:HTMLElement,options:Options) {
   const find=<T extends Element=HTMLElement>(s:string)=>root.querySelector<T>(s)!;
   const visible=()=>filterAffiliateAgents(snapshot.rows,filters);
   root.innerHTML=`<div class="affiliate-shell">
-    <header class="affiliate-header"><a class="affiliate-brand" href="?view=tv" data-aff-action="back" aria-label="그룹 AX 현황으로 돌아가기">${identity()}</a>
-      <nav class="affiliate-breadcrumb" aria-label="현재 위치"><button data-aff-action="back">그룹 AX 추진 현황</button>${icon('chevron-right')}<span>${esc(company.name)}</span><b>계열사 상세</b></nav>
+    <header class="affiliate-header"><a class="affiliate-brand" href="?view=tv" data-aff-action="back" aria-label="${L.home}으로 돌아가기">${identity()}</a>
+      <nav class="affiliate-breadcrumb" aria-label="현재 위치"><button data-aff-action="back">${L.title}</button>${icon('chevron-right')}<span>${esc(company.name)}</span><b>${scopeKind==='bank'?'부서별 상세':'계열사 상세'}</b></nav>
       <div class="affiliate-header-end"><span class="demo-label">DEMO DATA</span><time id="affiliate-clock"></time><small>KST</small></div></header>
     <section class="affiliate-heading"><div class="affiliate-heading-main"><span class="affiliate-company-symbol">${icon(company.icon)}</span><div><span class="affiliate-eyebrow">AFFILIATE AX OVERVIEW / ${company.id.toUpperCase()}</span><h1>${esc(company.name)} <span>AI 에이전트 현황</span></h1><p>${isBank?'29개 주무부서 · 실제 업무 에이전트 Long List 110건':'가상 에이전트 목록 · 실제 목록 수신 전 시연 구성'}</p></div></div>
-      <div class="affiliate-heading-actions"><button class="aff-outline" data-aff-action="back">${icon('arrow-left')} 그룹 AX 현황</button><label class="aff-company-picker">${icon('building-2')}<select aria-label="상세 화면 계열사 선택">${affiliates.map(a=>`<option value="${a.id}" ${a.id===company.id?'selected':''}>${esc(a.name)}</option>`).join('')}</select></label><button class="aff-square" data-aff-action="fullscreen" aria-label="계열사 상세 전체화면">${icon('maximize')}</button></div>
+      <div class="affiliate-heading-actions"><button class="aff-outline" data-aff-action="back">${icon('arrow-left')} ${L.home}</button><label class="aff-company-picker" ${scopeKind==='bank'?'hidden':''}>${icon('building-2')}<select aria-label="상세 화면 계열사 선택">${affiliates.map(a=>`<option value="${a.id}" ${a.id===company.id?'selected':''}>${esc(a.name)}</option>`).join('')}</select></label><button class="aff-square" data-aff-action="fullscreen" aria-label="계열사 상세 전체화면">${icon('maximize')}</button></div>
     </section>
     <div class="affiliate-provenance"><div>${icon(isBank?'file-check-2':'flask-conical')}<strong>${isBank?'실제 목록 반영':'가상 목록'}</strong><span>${isBank?'명칭·담당 부서·정의는 첨부 원문 기준':'에이전트 이름과 업무 정의는 데모 구성'}</span><i></i><span>실행 상태·LLM 경로·성과 수치는 시뮬레이션</span></div><button data-aff-action="source">${isBank?'출처 및 산정 기준':'데모 산정 기준'}${icon('arrow-up-right')}</button></div>
     <section class="affiliate-kpis" aria-label="선택 범위 지표"></section>

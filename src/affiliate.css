@@ -286,3 +286,4 @@ body.affiliate-mode { background:#0d1117; }
   .affiliate-footer {flex-direction:column;gap:5px;font-size:8px;}
 }
 @media(prefers-reduced-motion:reduce) {.affiliate-shell * {animation:none!important;transition:none!important;}}
+.aff-company-picker[hidden] {display:none;}
