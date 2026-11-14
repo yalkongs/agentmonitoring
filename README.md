@@ -2,6 +2,8 @@
 
 그룹 CEO가 계열사별 AX 확산, 업무 혁신과 성과를 점검하는 경영 대시보드 데모. **실행 상태·성과·LLM 경로는 가상 데이터**입니다. iM뱅크의 29개 주무부서와 110개 업무 에이전트 제목·정의는 사용자가 제공한 실제 Long List를 반영합니다. 외부 LLM이나 실제 사내 시스템에 연결하지 않습니다.
 
+GitHub 저장소: https://github.com/yalkongs/agentmonitoring
+
 화면은 차콜·슬레이트 기반의 **Group AX / CEO Overview** 테마를 사용합니다. 내부 LLM은 블루, 외부 LLM은 앰버로 구분하고, 제공받은 로고는 헤더에 한 번만 작게 표시합니다. 로고는 제공된 원본에서 하단 글자와 흰 배경을 제거한 투명 PNG 심벌을 사용하며, 원래의 민트색·그라데이션을 표시합니다. 중앙에는 AI 업무 적용률을, 계열사에는 각각의 적용 수준을 표시합니다. 등록 에이전트 수는 후보·목록 규모를 설명하는 보조 지표입니다.
 
 ## Vercel 배포
@@ -15,7 +17,7 @@ vercel link --yes --project agentmonitoring --scope weoncheol-hwangs-projects
 npm run deploy
 ```
 
-프로젝트 업데이트를 완료하면 검증 후 즉시 Vercel 운영 배포까지 수행합니다. 이 지속 지침은 `AGENTS.md`에 기록되어 있습니다. 현재 Git 원격 저장소는 연결되어 있지 않아 Git push 자동 배포나 파일 변경 감시 방식은 사용하지 않습니다. 운영 주소는 배포 결과의 Production alias에서 확인합니다.
+프로젝트 업데이트를 완료하면 검증 후 즉시 Vercel 운영 배포까지 수행합니다. 이 지속 지침은 `AGENTS.md`에 기록되어 있습니다. 소스는 GitHub 저장소(https://github.com/yalkongs/agentmonitoring)에 공개되어 있지만, Vercel과 Git 연동은 하지 않아 push만으로 자동 배포되지 않습니다. 운영 주소는 배포 결과의 Production alias에서 확인합니다.
 
 ## 기존 ChatGPT Sites 모바일 접속
 
