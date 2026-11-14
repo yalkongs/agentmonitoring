@@ -17,7 +17,7 @@ vercel link --yes --project agentmonitoring --scope weoncheol-hwangs-projects
 npm run deploy
 ```
 
-프로젝트 업데이트를 완료하면 검증 후 즉시 Vercel 운영 배포까지 수행합니다. 이 지속 지침은 `AGENTS.md`에 기록되어 있습니다. 소스는 GitHub 저장소(https://github.com/yalkongs/agentmonitoring)에 공개되어 있지만, Vercel과 Git 연동은 하지 않아 push만으로 자동 배포되지 않습니다. 운영 주소는 배포 결과의 Production alias에서 확인합니다.
+프로젝트 업데이트를 완료하면 검증 후 즉시 Vercel 운영 배포까지 수행합니다. 이 지속 지침은 `AGENTS.md`에 기록되어 있습니다. Vercel 프로젝트는 GitHub 저장소(https://github.com/yalkongs/agentmonitoring)와 연동되어 있어 `main` 브랜치에 push하면 운영 배포가, 다른 브랜치에 push하면 Preview 배포가 자동으로 실행됩니다. `npm run deploy`는 push 없이 로컬에서 직접 배포할 때 사용합니다. 운영 주소는 배포 결과의 Production alias에서 확인합니다.
 
 ## 기존 ChatGPT Sites 모바일 접속
 
